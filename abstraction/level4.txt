@@ -1,3 +1,10 @@
+Client registration process:
+
+
 Login process
 * two parameters required: password and username
-
+  - if automatic login
+     - get username and password from storage
+     - if not available, ask user for input
+  - else, get username and password from input field
+  - 
