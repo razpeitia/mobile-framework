@@ -2,12 +2,15 @@
 MOBILE API SUMMARY
 ==================
 Details:
-* api_ prefix, maps to specific function
-* _(), maps to URLs
-* response are json
-* each api call need clientID and SecretKey (except first call of api_init)
-* accessToken, to authenticate user logged in.
-* request are signed
+* api_ prefix, maps to specific function.
+* _(), maps to URLs.
+* response are json.
+* each api call need clientID and accessToken (except first call of api_init)
+* SecretKey is given on client registration, used for signature/validation 
+  process and never passed through network. store the SecretKey.
+* accessToken is given on client registration, used to authenticate user loged in.
+  should be stored and updated after login/logout process.
+* request are signed, unless not specified with a `signed` keyword.
 * api.php, central entry for all request
 
 api.php params:
