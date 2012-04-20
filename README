@@ -4,4 +4,4 @@ Requisitos:
     python 2.7
 
 Dependencias:
-	requests 0.11.1
+    requests 0.11.1
