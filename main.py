@@ -9,16 +9,11 @@ def main():
     print forum_display
     
     #Login del usuario
-    #nombre de usuario y contraseña en md5 hexdigest requerido
-    session = methods.login_login(api_init, "username", "md5 hash here")
+    #nombre de usuario y el password en md5 hexdigest requerido
+    session = methods.login_login(api_init, "username", "md5 password")
     print session
     
-    #Otra llamada a api_init requerida despues del login
-    api_init = methods.api_init()
-    print api_init
-    
-    #Aqui falla miserablemente
-    #Razon: 
+    #Obtenemos la lista de amigos
     print methods.misc_buddylist(api_init, session)
     
     #Logout exitoso

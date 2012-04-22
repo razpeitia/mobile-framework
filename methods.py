@@ -32,14 +32,7 @@ def add_signature(params, api_init):
     signature = create_signature(API_KEY, api_init, params)
     params["api_sig"] = signature
     
-def add_session_hash(params, session):
-    params['dbsessionhash'] = session['session']['dbsessionhash']
-    params['userid'] = session['session']['userid']
-    
-
-def caller(api_init, params, signature=False, session_hash={}, method="get", post_data={}):
-    if session_hash:
-        add_session_hash(params, session_hash)
+def caller(api_init, params, signature=False, method="get", post_data={}):
     if signature:
         add_signature(params, api_init)
     if api_init:
@@ -81,4 +74,4 @@ def login_logout(api_init):
 
 def misc_buddylist(api_init, session):
     params = {'api_m': 'misc_buddylist'}
-    return caller(api_init, params, signature=True, session_hash=session)
+    return caller(api_init, params, signature=True)
