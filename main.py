@@ -1,23 +1,18 @@
-import methods
+from pprint import pprint
+from vapi import Api
 
 def main():
-    #api_init requerido para varias llamadas
-    api_init = methods.api_init()
+    api = Api()
     
-    #Despliega informacion del foro 130 aka python
-    forum_display = methods.forum_display(api_init, "130")
-    print forum_display
+    forum_list = api.forum_list()
+    # forum_display = api.forum_display("130")
+    pprint(forum_list)
+    # thread_display = api.thread_display()
+
+    # api.login('my_username', 'my_password')
+    # api.buddy_list()
+    # api.logout()
     
-    #Login del usuario
-    #nombre de usuario y el password en md5 hexdigest requerido
-    session = methods.login_login(api_init, "username", "md5 password")
-    print session
-    
-    #Obtenemos la lista de amigos
-    print methods.misc_buddylist(api_init, session)
-    
-    #Logout exitoso
-    print methods.login_logout(api_init)
     
 
 if __name__ == '__main__':
